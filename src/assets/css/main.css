@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle,
+            rgba(238, 174, 202, 1) 0%,
+            rgba(199, 233, 148, 1) 100%);
+}
+
+h1 {
+    text-align: center;
+    margin: 2rem 0 4rem 0;
+}
+
+.main-page{
+    border:1px solid;
+}
+
+.main-header{
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    border-bottom: 1px solid;
+
+}
+.main-header-item{
+    padding: 5px;
+}
+.main-header-item.active {
+    border-bottom:3px solid black;
+}
+
+.warrior-list{
+    list-style: none;
+    text-align: left;
+    width: min(90%,70.5rem);
+}
+.accordion {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.accordion-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion-title:hover {
+    border-bottom:1px solid black;
+}
+
+.accordion-title,
+.accordion-content {
+    padding: 1rem;
+}
+
+.accordion-content {
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 18px;
+    }
+
+    .accordion {
+        width: 90%;
+    }
+}
+
+.accordion-item {
+    border: 1px solid black;
+    margin-bottom: 1em;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    margin-inline: auto;
+    /* ilk değer min değer 2. değer max değer */
+    width: min(50%, 70.5rem);
+}
