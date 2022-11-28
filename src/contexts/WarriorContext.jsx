@@ -10,6 +10,9 @@ const WarriorContextProvider = (props) => {
   const [randomWarrior, setRandomWarrior] = useState();
   const [selectedWarriorId, setSelectedWarriorId] = useState();
   const [selectedWarriorDetail, setSelectedWarriorDetail] = useState();
+  
+  const [selectedWarriorInfo, setSelectedWarriorInfo] = useState({id:1,text:"Atak",warrior:{id:"",text:"",hp:"",skills:{"atak":{"uzak":"","yakın":""},"defans":{"uzak":"","yakın":""}}}});
+  const [randomWarriorInfo,setRandomWarriorInfo] = useState({id:2,text:"Defans",warrior:{id:"",text:"",hp:"",skills:{"atak":{"uzak":"","yakın":""},"defans":{"uzak":"","yakın":""}}}})
   const [warDet, setWarDet] = useState({
     id: "",
     skill1: false,
@@ -17,6 +20,102 @@ const WarriorContextProvider = (props) => {
     skill3: false,
     skill4: false,
   });
+
+  const attack = (attacker, defenser ,location,turn) => {
+    //location ===1 ? Yakın  ===2 uzak
+    //mesela uzak seçtik
+    //mesela random olarak uzak seçildi.
+    console.log(attacker)
+    console.log(defenser)
+    console.log(location)
+    console.log(turn)
+
+
+    let attackerDefenseSkill = attacker.skills.filter(skill => skill.skill_type === 2);
+    let attackerAttackSkill = attacker.skills.filter(skill => skill.skill_type === 1); 
+    let defenserDefenseSkill = defenser.skills.filter(skill => skill.skill_type === 2);
+    let defenserAttackSkill = defenser.skills.filter(skill => skill.skill_type === 1); 
+
+
+    let attackerAttackSkillFar = attackerAttackSkill.filter(skill => skill.skill_type_option === 2); 
+    let attackerAttackSkillNear = attackerAttackSkill.filter(skill => skill.skill_type_option === 1);
+    let attackerDefenseSkillFar = attackerDefenseSkill.filter(skill => skill.skill_type_option === 2); 
+    let attackerDefenseSkillNear = attackerDefenseSkill.filter(skill => skill.skill_type_option === 1);
+
+    let defenserAttackSkillFar = defenserAttackSkill.filter(skill => skill.skill_type_option === 2); 
+    let defenserAttackSkillNear = defenserAttackSkill.filter(skill => skill.skill_type_option === 1);
+    let defenserDefenseSkillFar = defenserDefenseSkill.filter(skill => skill.skill_type_option === 2); 
+    let defenserDefenseSkillNear = defenserDefenseSkill.filter(skill => skill.skill_type_option === 1);
+    
+    // if(location === )
+
+    const DefenserReceivedDamage = attackerAttackSkillFar[0]?.point;
+    const AttackerReceivedDamage = defenserDefenseSkillFar[0]?.point;
+
+    return {attackerDemage:AttackerReceivedDamage,defenserDemage:DefenserReceivedDamage};
+  };
+
+  const defense = ({ attacker, defenser,location,turn }) => {
+    //location ===1 ? Yakın  ===2 uzak
+    let attackerDefenseSkill = attacker.skills.filter(skill => skill.skill_type === 2);
+    let attackerAttackSkill = attacker.skills.filter(skill => skill.skill_type === 1); 
+    let defenserDefenseSkill = defenser.skills.filter(skill => skill.skill_type === 2);
+    let defenserAttackSkill = defenser.skills.filter(skill => skill.skill_type === 1); 
+
+    let attackerAttackSkillFar = attackerAttackSkill.filter(skill => skill.skill_type_option === 2); 
+    let attackerAttackSkillNear = attackerAttackSkill.filter(skill => skill.skill_type_option === 1);
+    let attackerDefenseSkillFar = attackerDefenseSkill.filter(skill => skill.skill_type_option === 2); 
+    let attackerDefenseSkillNear = attackerDefenseSkill.filter(skill => skill.skill_type_option === 1);
+
+    let defenserAttackSkillFar = defenserAttackSkill.filter(skill => skill.skill_type_option === 2); 
+    let defenserAttackSkillNear = defenserAttackSkill.filter(skill => skill.skill_type_option === 1);
+    let defenserDefenseSkillFar = defenserDefenseSkill.filter(skill => skill.skill_type_option === 2); 
+    let defenserDefenseSkillNear = defenserDefenseSkill.filter(skill => skill.skill_type_option === 1);
+
+    const DefenserReceivedDamage = attackerAttackSkillFar[0]?.point;
+    const AttackerReceivedDamage = defenserDefenseSkillFar[0]?.point;
+    // const receivedDamage =
+    //   attacker.attack 
+  
+    // const finalDamage = receivedDamage - defenser.defense / 2;
+  
+    return [AttackerReceivedDamage,DefenserReceivedDamage];
+  };
+
+  
+  useEffect(() =>{
+    let bashData = selectedWarriorInfo;
+    if(selectedWarriorDetail!==undefined){
+    bashData.warrior.id=selectedWarriorDetail?.id;
+    bashData.warrior.text=selectedWarriorDetail?.name;
+    bashData.warrior.hp=selectedWarriorDetail?.hp;
+
+    let atak = selectedWarriorDetail.skills.filter(skill => Number(skill.skill_type)===1);
+    let defans = selectedWarriorDetail.skills.filter(skill => Number(skill.skill_type)===2);
+
+    bashData.warrior.skills.atak.uzak= atak.filter(item => item.skill_type_option===2)
+    bashData.warrior.skills.atak.yakın= atak.filter(item => item.skill_type_option===1)
+    bashData.warrior.skills.defans.uzak= defans.filter(item => item.skill_type_option===2)
+    bashData.warrior.skills.defans.yakın= defans.filter(item => item.skill_type_option===1)
+
+    let bashData1 = randomWarriorInfo;
+
+    bashData1.warrior.id=randomWarrior?.id;
+    bashData1.warrior.text=randomWarrior?.name;
+    bashData1.warrior.hp=randomWarrior?.hp;
+
+    let atakRandom = randomWarrior.skills.filter(skill => Number(skill.skill_type)===1);
+    let defansRondom = randomWarrior.skills.filter(skill => Number(skill.skill_type)===2);
+
+    bashData1.warrior.skills.atak.uzak = atakRandom.filter(item => item.skill_type_option===2)
+    bashData1.warrior.skills.atak.yakın = atakRandom.filter(item => item.skill_type_option===1)
+    bashData1.warrior.skills.defans.uzak = defansRondom.filter(item => item.skill_type_option===2)
+    bashData1.warrior.skills.defans.yakın = defansRondom.filter(item => item.skill_type_option===1)
+
+    setSelectedWarriorInfo(bashData);
+    setRandomWarriorInfo(bashData1);
+  }
+  },[selectedWarriorDetail,randomWarrior]);
 
   const [selectList, setSelectList] = useState([
     {
@@ -192,7 +291,11 @@ const WarriorContextProvider = (props) => {
         selectedWarriorId, 
         setSelectedWarriorId,
         selectedWarriorDetail, 
-        setSelectedWarriorDetail
+        setSelectedWarriorDetail,
+        defense,
+        attack,
+        selectedWarriorInfo, setSelectedWarriorInfo,
+        randomWarriorInfo,setRandomWarriorInfo
       }}
     >
       {props.children}

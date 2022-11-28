@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from '../../helper/Modal';
-import useModal from '../../helper/useModal';
+import useModal from '../../helper/hooks/useModal';
 import Accordion from '../Accordion/Accordion';
 
 function Settings() {
