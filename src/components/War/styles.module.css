@@ -1,0 +1,21 @@
+.main {
+  width: 85vw;
+  height:100vh;
+  display: inline-block;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between
+  
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  
+}
+
+.bg-color{
+  background-color: darkgrey;
+}
+

@@ -6,7 +6,7 @@ import Accordion from '../Accordion/Accordion';
 function Settings() {
     const {isShowing, toggle} = useModal();
 return(<>
-    <button onClick={toggle}>Savaşçı Ekle</button>
+    <button className='btn btn-success fs-5' onClick={toggle}>Savaşçı Ekle</button>
     <div style={{display:"flex",justifyContent:"center"}}>
         <ul className='warrior-list'>
         <Accordion/>

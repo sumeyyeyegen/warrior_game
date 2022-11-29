@@ -2,7 +2,7 @@
   display: flex;
   border-radius: 5px;
   gap: 5px;
-  padding: 5px;
+  width: 150px;
   align-items: center;
   background-color: white;
 }
@@ -23,12 +23,20 @@
   border-radius: 5px;
   overflow: hidden;
   box-sizing: border-box;
+  border: 1px solid rgb(158, 69, 5);
   flex: 1;
-  background-color: lightgray;
+  background-color: white;
 }
 .value {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
   height: 100%;
-  background-color: #0566fa;
+  width: 400px;
+  background-color: rgb(158, 69, 5);
 
   transition: 0.35s;
 }

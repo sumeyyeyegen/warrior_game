@@ -12,9 +12,11 @@ function Main(){
                <li className={`main-header-item ${tab===1? "active":""}`} onClick={() => setTab(1)}>Savaş</li>
                <li className={`main-header-item ${tab===2 ? "active":""}`} onClick={() =>setTab(2)}>Ayarlar</li> 
             </ul>
+            <div className="container">
             {
                 tab === 1 ? <WarPage/>:<SettingPage/>
             }
+            </div>
         </div>
     )
 }

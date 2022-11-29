@@ -1,6 +1,7 @@
 import "./App.css";
 import Accordion from "./components/Accordion/Accordion";
-import "./assets/css/main.css";
+// import "./assets/css/main.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from "./components/Main/main";
 import MainContextProvider from "./contexts/MainContext";
 import WarriorContextProvider from "./contexts/WarriorContext";
@@ -8,13 +9,11 @@ import WarriorContextProvider from "./contexts/WarriorContext";
 function App() {
   return (
     <div className="App">
-      <div className="container">
         <MainContextProvider>
           <WarriorContextProvider>
             <Main />
           </WarriorContextProvider>
         </MainContextProvider>
-      </div>
     </div>
   );
 }

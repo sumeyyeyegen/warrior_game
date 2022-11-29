@@ -34,6 +34,7 @@ export default function alert(){
             icon: 'question',
             title: 'Silmek istediğinize emin misiniz?',
             showConfirmButton: true,
+            showCancelButton:true,
             confirmButtonText: 'Evet',
             cancelButtonText : "Hayır",
             timer: 2500

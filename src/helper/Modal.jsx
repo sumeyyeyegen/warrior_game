@@ -32,16 +32,16 @@ const Modal = ({ isShowing, hide }) => {
 
   return (
     <React.Fragment>
-      <div className="modal-overlay" />
+      <div className="modal-overlay1" />
       <div
-        className="modal-wrapper"
+        className="modal-wrapper1"
         aria-modal
         aria-hidden
         tabIndex={-1}
         role="dialog"
       >
-        <div className="modal">
-          <div className="modal-header">
+        <div className="custom-modal">
+          <div className="modal-header1">
             <button
               type="button"
               className="modal-close-button"
@@ -53,15 +53,15 @@ const Modal = ({ isShowing, hide }) => {
             </button>
           </div>
           <p>
-            <div>
-              <label htmlFor="">Savaşçı Adı</label>
-              <input type="text" ref={warriorNameRef} />
+            <div className="row my-3">
+              <label className="col-3 text-end" htmlFor="">Savaşçı Adı</label>
+              <input className="col-7" type="text" ref={warriorNameRef} />
             </div>
-            <div>
-              <label htmlFor="">Puan</label>
-              <input type="text" ref={pointRef} />
+            <div  className="row d-flex mb-3">
+              <label className="col-3 text-end" htmlFor="">Puan</label>
+              <input className="col-7" type="text" ref={pointRef} />
             </div>
-            <button onClick={() => addWarrior()}>Savaşçı ekle</button>
+            <button className="btn btn-success" onClick={() => addWarrior()}>Savaşçı ekle</button>
           </p>
         </div>
       </div>

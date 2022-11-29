@@ -1,0 +1,32 @@
+.main {
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* height: 100%; */
+  display: flex!important;
+  gap: 10px;
+  justify-content: space-around;
+  width: 100%;
+}
+/* .main > :first-child {
+  grid-column-start: 1;
+  grid-column-end: 3;
+} */
+.option {
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: rgb(215, 125, 0);
+  margin-right: 10px;
+
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #fd9401;
+}

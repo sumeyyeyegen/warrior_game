@@ -4,36 +4,31 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    background: rgb(238, 174, 202);
-    background: radial-gradient(circle,
-            rgba(238, 174, 202, 1) 0%,
-            rgba(199, 233, 148, 1) 100%);
-}
-
 h1 {
     text-align: center;
     margin: 2rem 0 4rem 0;
 }
 
 .main-page{
-    border:1px solid;
+    /* border:1px solid; */
 }
 
 .main-header{
+
     list-style: none;
     display: flex;
-    padding: 5px;
-    border-bottom: 1px solid;
+    padding: 40px;
+    color: rgb(222, 115, 39);
+    font-size: 24px;
+    background-color: rgb(243, 199, 141);
+    /* border-bottom: 1px solid; */
 
 }
 .main-header-item{
     padding: 5px;
 }
 .main-header-item.active {
-    border-bottom:3px solid black;
+    border-bottom:3px solid rgb(204, 159, 101);
 }
 
 .warrior-list{
@@ -88,5 +83,15 @@ h1 {
 .container {
     margin-inline: auto;
     /* ilk değer min değer 2. değer max değer */
-    width: min(50%, 70.5rem);
+    width: min(90%, 70.5rem);
+}
+
+.game-over{
+    font-size: 32px;
+    color: #fdac00;
+    text-shadow: 0px 0px 5px #7f0000;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
 }

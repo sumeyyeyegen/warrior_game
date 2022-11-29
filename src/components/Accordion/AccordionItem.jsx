@@ -67,11 +67,11 @@ function AccordionItem({ warrior, activeIndex }) {
 
     return (
         <div className="accordion-content">
-            <button>Savaşçı sil</button>
+            <button className="btn btn-danger">Savaşçı sil</button>
             <div>
                 <div className="accordion-header">
                     <div>Tür</div>
-                    <div>Alt Tür</div>
+                    <div>Alt Tür</div> 
                     <div>Hasar Puanı</div>
                     <button onClick={() => addRow()}>Ekle</button>
                 </div>
@@ -89,7 +89,6 @@ function AccordionItem({ warrior, activeIndex }) {
                                         <SelectType handleChange={handleChange} skill={skill} />
                                         <div>{skill.point}</div>
                                         <div>
-                                            <button>Kaydet</button>
                                             <button onClick={() => deleteSkill(skill?.id)}>Sil</button>
                                         </div>
                                     </div>
