@@ -1,3 +1,4 @@
+import axios from "axios";
 import axiosInstance from "../helper/AxiosInstance";
 
 export default function Skill(){
@@ -12,17 +13,11 @@ export default function Skill(){
         
     }
 
-    function DeleteSkill(id) {
-
-        let data = {id:Number(id)}
-        // let jsonData = JSON.stringify(data);
-        // console.log(jsonData)
+    function DeleteSkill(ID) {
         return new Promise((resolve,reject)=> {
-            axiosInstance.delete(`https://projectone.proxolab.com/api/skills`,data).then(res => {
+            axiosInstance.delete(`https://projectone.proxolab.com/api/skills`,{ data: { "id": ID } }).then(res => {
                 console.log(res)
-                return resolve(res)
-            }).catch(ress =>{
-                return reject(ress)
+                return resolve(res);
             })
         })
         

@@ -8,7 +8,7 @@ const WarriorContextProvider = (props) => {
   const [warriorId, setWarriorId] = useState();
   const [warriorDetail, setWarriorDetail] = useState();
   const [randomWarrior, setRandomWarrior] = useState();
-  const [selectedWarriorId, setSelectedWarriorId] = useState();
+  const [selectedWarriorId, setSelectedWarriorId] = useState(-1);
   const [selectedWarriorDetail, setSelectedWarriorDetail] = useState();
   
   const [selectedWarriorInfo, setSelectedWarriorInfo] = useState({warrior:{id:"",text:"",hp:"",maxHP:"",skills:{"atak":{"uzak":"","yakın":""},"defans":{"uzak":"","yakın":""}}}});

@@ -46,10 +46,8 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
-}
-
-.accordion-title:hover {
-    border-bottom:1px solid black;
+    border-radius: 15px 15px 0 0;
+    background-color: #fdf29dec;
 }
 
 .accordion-title,
@@ -58,6 +56,8 @@ h1 {
 }
 
 .accordion-content {
+    background-color: #fdf29dec;
+    border-radius: 0 0 15px 15px;
 }
 
 @media screen and (max-width: 700px) {
@@ -70,14 +70,20 @@ h1 {
     }
 }
 
+.btn-success{
+    background-color: rgb(102, 177, 141)!important;
+    border: 1px solid rgb(102, 177, 141)!important;
+}
+
 .accordion-item {
-    border: 1px solid black;
     margin-bottom: 1em;
+    
 }
 
 .accordion-header {
     display: flex;
     justify-content: space-around;
+    font-weight: bold;
 }
 
 .container {

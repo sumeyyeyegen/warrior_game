@@ -28,5 +28,14 @@ export default function Warrior(){
         
     }
 
-    return {WarriorList,WarriorById,AddWarrior}
+    function DeleteWarrior(id) {
+        return new Promise((resolve,reject)=> {
+            axiosInstance.delete(`https://projectone.proxolab.com/api/warriors`,{ data: { "id": id } }).then(res => {
+                return resolve(res)
+            })
+        })
+        
+    }
+
+    return {WarriorList,WarriorById,AddWarrior,DeleteWarrior}
 }

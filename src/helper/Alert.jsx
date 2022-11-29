@@ -36,8 +36,7 @@ export default function alert(){
             showConfirmButton: true,
             showCancelButton:true,
             confirmButtonText: 'Evet',
-            cancelButtonText : "Hayır",
-            timer: 2500
+            cancelButtonText : "Hayır"
           }).then(res =>{
             response(res.isConfirmed)
           })

@@ -1,10 +1,12 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import { MainContext } from "../../contexts/MainContext";
 import { WarriorContext } from "../../contexts/WarriorContext";
 import Skill from "../../core/skill";
 import Warrior from "../../core/warrior";
 import alert from "../Alert";
 
 const AddSkill = () => {
+  const {tab,setTab} = useContext(MainContext);
   const { warDet, SelectControl, selectList, setSelectList, setWarriors } =
     useContext(WarriorContext);
   const [selectedSkillTypes, setSelectedSkillTypes] = useState(-1);
@@ -39,7 +41,7 @@ const AddSkill = () => {
             Skill()
               .AddSkill(insertData)
               .then((res) => {
-                setInsertRes(res);
+                setInsertRes(res);                
               });
           } else {
             alert().Info("Hasar Puanı En Fazla 20 Olabilir");
@@ -58,6 +60,8 @@ const AddSkill = () => {
 
   useEffect(() => {
     if (insertRes.status === 200) {
+      window.location.reload(true);
+      setTab(2);
       alert().Success();
       setInsertRes("");
       setSelectedSkillTypeOptions(JSON.parse(JSON.stringify(-1)));
@@ -81,7 +85,7 @@ const AddSkill = () => {
 
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div className="d-flex justify-content-between">
       {/* <select onChange={(e) => setSelectedSkillTypes(e.target.value)}>
         {
           selectList?.map((item,i) =>{
@@ -98,8 +102,8 @@ const AddSkill = () => {
           })
         }
       </select> */}
-
-      <select onChange={(e) => setSelectedSkillTypes(e.target.value)}>
+    <div className="d-flex justify-content-between w-50">
+      <select className="form-select me-4" onChange={(e) => setSelectedSkillTypes(e.target.value)}>
         <option value="-1">Bir değer seçiniz.</option>
         {selectList?.map((type) => {
           if (type?.type === true) {
@@ -107,18 +111,20 @@ const AddSkill = () => {
           }
         })}
       </select>
-      <select onChange={(e) => setSelectedSkillTypeOptions(e.target.value)}>
-        <option value="-1">..</option>
+      <select className="form-select" onChange={(e) => setSelectedSkillTypeOptions(e.target.value)}>
+        <option value="-1">Bir değer seçiniz.</option>
+        
         {filteredSubSkill?.subOptions?.map((type) => {
           if (type?.type === true) {
             return <option value={type?.id}>{type?.text}</option>;
           }
         })}
       </select>
-      <input type="text" ref={pointRef} />
+      </div>
+      <input className="form-control" style={{width:"20%",marginRight:"2rem"}} type="text" ref={pointRef} />
       <div>
-        <button onClick={() => addSkill()}>Kaydet</button>
-        <button >Sil</button>
+        <button className="btn btn-success btn-sm me-2" onClick={() => addSkill()}>Kaydet</button>
+        <button className="btn btn-danger btn-sm" >Sil</button>
       </div>
     </div>
   );
